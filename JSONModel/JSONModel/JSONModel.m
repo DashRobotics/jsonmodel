@@ -635,6 +635,10 @@ static JSONKeyMapper* globalKeyMapper = nil;
                 p.structName = propertyType;
 
             }
+            // DASH - check if property is a union
+            else if ([scanner scanString:@"(?=" intoString: &propertyType]) {
+                p.isStandardJSONType = NO;
+            }
             //the property must be a primitive
             else {
 
